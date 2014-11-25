@@ -27,13 +27,14 @@ import html.parser
 
 
 def print_a_page(url):
+    f = open('1.txt','a')
     like_href=[]
     response = urllib.request.urlopen(url)
     soup = BeautifulSoup(response.read())
     likes = soup.find_all("div",{"class":"content"})
     for like in likes:
         like_href.append((like.contents[1].contents[1].get('href'),like.contents[1].contents[1].contents,like.contents[3].contents[1].contents))
- 
+ #上一行需要优化
         #如何提出网址
         #items[0].contents[1].get('href')
         #如何提出文字
