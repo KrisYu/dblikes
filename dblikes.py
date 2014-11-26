@@ -19,11 +19,12 @@ def print_a_page(url):
 #        outfile.write('\n'.join(href.encode('ascii', 'ignore')))
 #        outfile.write('\n')
 
-        print('-'*50)
+        print('-'*50,'\n')
         print('Writing to file....')
         print(title)
         print(time)
         print(href)
+        print('\n')
 
 
         '''
