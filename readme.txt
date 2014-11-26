@@ -6,6 +6,11 @@
 	- analyze the user likes and time.
 
 - Severl Problems now
-	- How to record all the results. now can only print them on screen.
+	- Analyze all the time, period for my douban time
+	- Analyze the items.
 	- How to analyze Chinese characters. regular expression?
 	- maybe download ?
+
+- Tech Details
+	- extract all the time and use regular expression?
+	- extract key Chinese characters.
