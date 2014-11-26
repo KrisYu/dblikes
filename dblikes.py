@@ -6,7 +6,6 @@ import html.parser
 outfile = open('dblikes.txt','w')
 
 def print_a_page(url):
-    like_href=[]
     response = urllib.request.urlopen(url)
     soup = BeautifulSoup(response.read())
     likes = soup.find_all("div",{"class":"content"})
@@ -44,10 +43,10 @@ def print_all(url,page):
         if i == 0:
             print_a_page(url)
         else:
-            url = url + '?start=' + str(i*15)
+            url = 'http://www.douban.com/people/yuxue/likes/'+ '?start='+str(i*15)
             print_a_page(url)
 
-print_all('http://www.douban.com/people/yuxue/likes/',2)
+print_all('http://www.douban.com/people/yuxue/likes/',73)
     
 
 
