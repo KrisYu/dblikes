@@ -3,53 +3,34 @@ import urllib.request
 from bs4 import BeautifulSoup
 import html.parser
 
-#最先抓出需要的东西，比如喜欢的页数
-# url = "http://www.douban.com/people/yuxue/likes/"
-# response = urllib.request.urlopen(url)
-# soup = BeautifulSoup(response.read())
-# a = soup.find_all('span',{"class":"thispage"})
-# http://www.douban.com/people/yuxue/likes/
-# pages = int(a[0].get('data-total-page'))
-
-# def get_data_from_url(url,number):
-#     like_href = []
-
-#     for i in range(1,pages):
-#         url_new = url + '?start=' + str(i*15)
-
-##def get_url(url,pages):
-##    for i in range(1,pages+1):
-##        if i == 0:
-##            return url
-##        else:
-##            return url + '?start=' + str(i*15)
-    
-
+outfile = open('dblikes.txt','w')
 
 def print_a_page(url):
-    f = open('1.txt','a')
     like_href=[]
     response = urllib.request.urlopen(url)
     soup = BeautifulSoup(response.read())
     likes = soup.find_all("div",{"class":"content"})
     for like in likes:
-        like_href.append((like.contents[1].contents[1].get('href'),like.contents[1].contents[1].contents,like.contents[3].contents[1].contents))
- #上一行需要优化
-        #如何提出网址
-        #items[0].contents[1].get('href')
-        #如何提出文字
-        #items[0].contents[1].contents
-        #提出时间 times[0].contents
-        #times = soup.find_all("p",{"class":"time"})
-  
+        title = like.contents[1].contents[1].get('href')
+        href = like.contents[1].contents[1].contents
+        time = like.contents[3].contents[1].contents
+ #       outfile.write('\n'.join(title.encode('ascii', 'ignore')))
+#        outfile.write('\n'.join(time.encode('ascii', 'ignore')))
+#        outfile.write('\n'.join(href.encode('ascii', 'ignore')))
+#        outfile.write('\n')
 
-    for like in like_href:
-        for i in like:
-            print(i)
-        print('\n')
-    
-    
+        print('-'*50)
+        print('Writing to file....')
+        print(title)
+        print(time)
+        print(href)
 
+
+        '''
+        like.find_all("div",{"class":"title"})[0].contents[1]
+        获得如<a href="http://www.douban.com/photos/photo/2211942112/" target="_blank">知乎：如何科学的吐槽</a>
+        然后根据DOM树把title， href， time 提出来
+        ''' 
     
 
 def print_all(url,page):
@@ -60,9 +41,9 @@ def print_all(url,page):
             url = url + '?start=' + str(i*15)
             print_a_page(url)
 
-print_all('http://www.douban.com/people/yuxue/likes/',73)
+print_all('http://www.douban.com/people/yuxue/likes/',2)
     
 
 
-		
+        
 
