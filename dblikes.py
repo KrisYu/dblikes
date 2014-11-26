@@ -14,10 +14,15 @@ def print_a_page(url):
         title = like.contents[1].contents[1].get('href')
         href = like.contents[1].contents[1].contents
         time = like.contents[3].contents[1].contents
- #       outfile.write('\n'.join(title.encode('ascii', 'ignore')))
-#        outfile.write('\n'.join(time.encode('ascii', 'ignore')))
-#        outfile.write('\n'.join(href.encode('ascii', 'ignore')))
-#        outfile.write('\n')
+        outfile.write('-'*50)
+        outfile.write('\n')
+        outfile.write(str(title))
+        outfile.write('\n')
+        outfile.write(str(time))
+        outfile.write('\n')
+        outfile.write(str(href))
+        outfile.write('\n')
+        outfile.write('\n')
 
         print('-'*50,'\n')
         print('Writing to file....')
