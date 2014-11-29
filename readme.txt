@@ -1,5 +1,10 @@
 - Learning Git.
 
+- Now status
+	- dblikes.py almost finished. but need error/exception handler.
+	- need to update dblikes.py or timedeal.py to deal with time.
+	
+
 - Making dblike with several needs:
 	- spider all the likes of one person
 	- analyze the user likes(such as different components)
